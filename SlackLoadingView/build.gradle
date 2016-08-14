@@ -1,0 +1,78 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'me.wangyuwei' // Change this to match your package name
+version = '1.0.0' // Change this to match your version number
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+}
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath()
+            .join(File.pathSeparator))
+}
+
+task generateJavadocsJar(type: Jar) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+artifacts {
+//    archives generateJavaDocsJar
+    archives generateSourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.key")
+    pkg {
+        repo = 'maven'
+        name = 'SlackLoadingView'
+        desc = "imitate slack loading animation"
+
+        version {
+            name = '1.0.0'
+            desc = 'imitate slack loading animation.'
+            vcsTag = 'android, loading, view'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/JeasonWong/SlackLoadingView.git'
+        websiteUrl = 'https://github.com/JeasonWong/SlackLoadingView'
+
+        labels = ['android']
+        publish = true
+        publicDownloadNumbers = true
+    }
+    configurations = ['archives']
+}
