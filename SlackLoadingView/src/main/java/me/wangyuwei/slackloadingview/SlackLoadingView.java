@@ -5,7 +5,6 @@ import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.NonNull;
@@ -38,7 +37,7 @@ public class SlackLoadingView extends View {
     private final int MIN_DURATION = 500;
 
     private Paint mPaint;
-    private int[] mColors = new int[]{Color.parseColor("#B07ECBDA"), Color.parseColor("#B0E6A92C"), Color.parseColor("#B0D6014D"), Color.parseColor("#B05ABA94")};
+    private int[] mColors = new int[]{0xB07ECBDA, 0xB0E6A92C, 0xB0D6014D, 0xB05ABA94};
     private int mWidth, mHeight;
     //动画间隔时长
     private int mDuration = MIN_DURATION;

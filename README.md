@@ -18,7 +18,7 @@ repositories {
 ```
 #####Step 2
 ```java
-compile 'me.wangyuwei:SlackLoadingView:1.0.0'
+compile 'me.wangyuwei:SlackLoadingView:1.0.1'
 ```
 
 ##**Lincense**

@@ -3,7 +3,7 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'me.wangyuwei' // Change this to match your package name
-version = '1.0.0' // Change this to match your version number
+version = '1.0.1' // Change this to match your version number
 
 android {
     compileSdkVersion 23
@@ -61,7 +61,7 @@ bintray {
         desc = "imitate slack loading animation"
 
         version {
-            name = '1.0.0'
+            name = '1.0.1'
             desc = 'imitate slack loading animation.'
             vcsTag = 'android, loading, view'
         }
