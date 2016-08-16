@@ -4,7 +4,7 @@ Imitate Slack loading animation.
 ## Demo
 <img src="http://i2.piimg.com/1070/0a3bbeb7b73c6f87.gif" width = "432" height = "507.6" align=center />
 
-## Arlticle
+## Article
 [手摸手教你写Slack的Loading动画](http://www.wangyuwei.me/2016/08/15/%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99Slack%E7%9A%84Loading%E5%8A%A8%E7%94%BB/)
 
 ##Build
@@ -21,9 +21,9 @@ repositories {
 compile 'me.wangyuwei:SlackLoadingView:1.0.1'
 ```
 
-##**Lincense**
+##**License**
 
-```lincense
+```license
 Copyright [2016] [JeasonWong of copyright owner]
 
 Licensed under the Apache License, Version 2.0 (the "License");
