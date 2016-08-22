@@ -6,7 +6,6 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -77,6 +76,7 @@ public class SlackLoadingView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setColor(mColors[0]);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     private void initData() {
@@ -129,9 +129,7 @@ public class SlackLoadingView extends View {
 
     private void drawCRLC(Canvas canvas, float startX, float startY, float stopX, float stopY, @NonNull Paint paint, int rotate) {
         canvas.rotate(rotate, mWidth / 2, mHeight / 2);
-        canvas.drawArc(new RectF(startX - mCircleRadius, startY - mCircleRadius, startX + mCircleRadius, startY + mCircleRadius), 180, 180, true, mPaint);
         canvas.drawLine(startX, startY, stopX, stopY, paint);
-        canvas.drawArc(new RectF(stopX - mCircleRadius, stopY - mCircleRadius, stopX + mCircleRadius, stopY + mCircleRadius), 0, 180, true, mPaint);
         canvas.rotate(-rotate, mWidth / 2, mHeight / 2);
     }
 
@@ -149,9 +147,7 @@ public class SlackLoadingView extends View {
 
     private void drawLC(Canvas canvas, float startX, float startY, float stopX, float stopY, @NonNull Paint paint, int rotate) {
         canvas.rotate(rotate, mWidth / 2, mHeight / 2);
-        canvas.drawArc(new RectF(startX - mCircleRadius, startY - mCircleRadius, startX + mCircleRadius, startY + mCircleRadius), 0, 180, true, mPaint);
         canvas.drawLine(startX, startY, stopX, stopY, paint);
-        canvas.drawArc(new RectF(stopX - mCircleRadius, stopY - mCircleRadius, stopX + mCircleRadius, stopY + mCircleRadius), 180, 180, true, mPaint);
         canvas.rotate(-rotate, mWidth / 2, mHeight / 2);
     }
 
@@ -293,7 +289,7 @@ public class SlackLoadingView extends View {
      * 线条变化动画
      */
     private void startLCAnim() {
-        ValueAnimator lineWidthAnim = ValueAnimator.ofFloat(mEntireLineLength, -mEntireLineLength);
+        ValueAnimator lineWidthAnim = ValueAnimator.ofFloat(mEntireLineLength - dp2px(getContext(), 1), -mEntireLineLength);
         lineWidthAnim.setDuration(mDuration);
         lineWidthAnim.setInterpolator(new LinearInterpolator());
         lineWidthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
