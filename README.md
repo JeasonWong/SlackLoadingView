@@ -1,8 +1,10 @@
 ## What's SlackLoadingView ?
 Imitate Slack loading animation.
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SlackLoadingView-green.svg?style=true)](https://android-arsenal.com/details/1/4154)
+
 ## Demo
-<img src="http://i2.piimg.com/1070/0a3bbeb7b73c6f87.gif" width = "432" height = "507.6" align=center />
+<img src="https://raw.githubusercontent.com/jeasonwong/SlackLoadingView/master/screenshots/slack.gif" width = "432" height = "507.6" align=center />
 
 ## Arlticle
 [手摸手教你写Slack的Loading动画](http://www.wangyuwei.me/2016/08/15/%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99Slack%E7%9A%84Loading%E5%8A%A8%E7%94%BB/)
