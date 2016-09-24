@@ -1,6 +1,7 @@
 package me.wangyuwei.slackloadingview;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -186,7 +187,7 @@ public class SlackLoadingView extends View {
         animationSet.setDuration(mDuration);
         animationSet.playTogether(animList);
         animationSet.setInterpolator(new LinearInterpolator());
-        animationSet.addListener(new AnimatorListener() {
+        animationSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Log.d("@=>", "动画1结束");
@@ -218,7 +219,7 @@ public class SlackLoadingView extends View {
                 invalidate();
             }
         });
-        canvasRotateAnim.addListener(new AnimatorListener() {
+        canvasRotateAnim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Log.d("@=>", "动画2结束");
@@ -267,7 +268,7 @@ public class SlackLoadingView extends View {
         animationSet.setDuration(mDuration);
         animationSet.playTogether(animList);
         animationSet.setInterpolator(new LinearInterpolator());
-        animationSet.addListener(new AnimatorListener() {
+        animationSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Log.d("@=>", "动画3结束");
@@ -299,7 +300,7 @@ public class SlackLoadingView extends View {
                 invalidate();
             }
         });
-        lineWidthAnim.addListener(new AnimatorListener() {
+        lineWidthAnim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Log.d("@=>", "动画4结束");
